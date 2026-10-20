@@ -3,7 +3,7 @@ name: Build Windows portable application
 on:
   push:
     branches:
-      - 'codex/celechron-windows-*'
+      - 'codex/celechron-windows-131-20261020'
   workflow_dispatch:
 
 permissions:
