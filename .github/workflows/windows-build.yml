@@ -28,8 +28,9 @@ jobs:
       - name: Apply Windows compatibility changes
         shell: powershell
         run: |
-          Copy-Item -Path .\overlay\* -Destination .\app -Recurse -Force
-          Copy-Item -LiteralPath .\.github\workflows\windows-build.yml -Destination .\app\.github\workflows\windows-build.yml -Force
+          Get-ChildItem -LiteralPath .\overlay -Force | ForEach-Object {
+            Copy-Item -LiteralPath $_.FullName -Destination .\app -Recurse -Force
+          }
 
       - name: Install Flutter SDK
         uses: subosito/flutter-action@v2
